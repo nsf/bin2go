@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	in = flag.String("in", "", "use this file instead of the stdin for input")
+	in  = flag.String("in", "", "use this file instead of the stdin for input")
 	out = flag.String("out", "", "use this file instead of the stdout for output")
 	pkg = flag.String("pkg", "", "prepend package clause specifing this package")
 )
@@ -99,7 +99,7 @@ func writeOutput(data []byte) {
 
 	// prepare "output"
 	if *out != "" {
-		file, err := os.Open(*out, os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0644)
+		file, err := os.Open(*out, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 		checkOutputFailure(err)
 		defer file.Close()
 
@@ -126,7 +126,7 @@ func main() {
 	flag.Usage = printUsage
 	flag.Parse()
 
-	if (flag.NArg() < 1) {
+	if flag.NArg() < 1 {
 		printUsageAndExit()
 	}
 
