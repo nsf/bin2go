@@ -44,7 +44,7 @@ func readInput() []byte {
 	}
 
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to read input:\n%s\n", err.String())
+		fmt.Fprintf(os.Stderr, "Failed to read input: %s\n", err)
 		os.Exit(INPUT_FAIL)
 	}
 	return data
@@ -52,7 +52,7 @@ func readInput() []byte {
 
 func checkOutputFailure(err os.Error) {
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to write output:\n%s\n", err.String())
+		fmt.Fprintf(os.Stderr, "Failed to write output: %s\n", err)
 		os.Exit(OUTPUT_FAIL)
 	}
 }
