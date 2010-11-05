@@ -12,7 +12,7 @@ import (
 var (
 	in  = flag.String("in", "", "use this file instead of the stdin for input")
 	out = flag.String("out", "", "use this file instead of the stdout for output")
-	pkg = flag.String("pkg", "", "prepend package clause specifing this package")
+	pkg = flag.String("pkg", "", "prepend package clause specifying this package")
 )
 
 // Exit error codes
