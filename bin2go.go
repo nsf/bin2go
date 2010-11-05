@@ -73,17 +73,21 @@ func writeData(data []byte, out io.Writer) {
 
 		n += 6
 
-		// be readable, break line after 78 characters
-		if n >= 78 {
-			_, err = fmt.Fprint(out, "\n\t")
-			checkOutputFailure(err)
+		// if this is not the last byte
+		if i != lastbytei {
+			// be readable, break line after 78 characters
+			if n >= 78 {
+				_, err = fmt.Fprint(out, "\n\t")
+				checkOutputFailure(err)
 
-			n = 8
-		} else if i != lastbytei {
-			// if this is not the last byte and we're not
-			// breaking the line, insert space after ','
-			_, err = fmt.Fprint(out, " ")
-			checkOutputFailure(err)
+				n = 8
+			} else {
+				// if we're not breaking the line, insert space
+				// after ','
+				_, err = fmt.Fprint(out, " ")
+				checkOutputFailure(err)
+			}
+
 		}
 	}
 	_, err = fmt.Fprint(out, "\n}\n")
