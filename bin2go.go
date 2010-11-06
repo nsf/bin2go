@@ -24,7 +24,7 @@ const (
 )
 
 func printUsage() {
-	fmt.Printf("usage: %s [-in=<path>] [-out=<path>] <varname>\n", os.Args[0])
+	fmt.Printf("usage: %s [-in=<path>] [-out=<path>] [-pkg=<name>] <varname>\n", os.Args[0])
 	flag.PrintDefaults()
 }
 
