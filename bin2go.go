@@ -99,7 +99,7 @@ func writeOutput(data []byte) {
 
 	// prepare "output"
 	if *out != "" {
-		file, err := os.Open(*out, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+		file, err := os.Create(*out)
 		checkOutputFailure(err)
 		defer file.Close()
 
