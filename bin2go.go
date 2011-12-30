@@ -1,12 +1,12 @@
 package main
 
 import (
-	"os"
-	"io"
-	"fmt"
-	"flag"
 	"bufio"
+	"flag"
+	"fmt"
+	"io"
 	"io/ioutil"
+	"os"
 )
 
 var (
@@ -35,7 +35,7 @@ func printUsageAndExit() {
 
 func readInput() []byte {
 	var data []byte
-	var err os.Error
+	var err error
 
 	if *in != "" {
 		data, err = ioutil.ReadFile(*in)
@@ -50,7 +50,7 @@ func readInput() []byte {
 	return data
 }
 
-func checkOutputFailure(err os.Error) {
+func checkOutputFailure(err error) {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to write output: %s\n", err)
 		os.Exit(OUTPUT_FAIL)
